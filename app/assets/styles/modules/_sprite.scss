@@ -1,0 +1,53 @@
+/* Do not edit modules/_sprite directly as it is generated automatically by Gulp.
+Instead edit gulp/templates/sprite */
+
+    .icon {
+      background-image: url('../../assets/images/sprites/sprite-1ed97516.svg');
+    }
+    
+    .no-svg .icon {
+     background-image: url('../../assets/images/sprites/sprite-1ed97516.png');
+    }
+
+
+  .icon--angle-down {
+    /* width: 322px;
+    height: 514px; */
+    background-position: 35.99003735990038% 0;
+  }
+
+  .icon--envelope {
+    /* width: 514px;
+    height: 514px; */
+    background-position: 63.64922206506365% 0;
+  }
+
+  .icon--github {
+    /* width: 498px;
+    height: 514px; */
+    background-position: 0 100%;
+  }
+
+  .icon--heart {
+    /* width: 578px;
+    height: 514px; */
+    background-position: 0 0;
+  }
+
+  .icon--linkedin-in {
+    /* width: 450px;
+    height: 514px; */
+    background-position: 33.69418132611637% 100%;
+  }
+
+  .icon--medium {
+    /* width: 450px;
+    height: 514px; */
+    background-position: 64.14073071718539% 100%;
+  }
+
+  .icon--twitter {
+    /* width: 514px;
+    height: 514px; */
+    background-position: 100% 0;
+  }

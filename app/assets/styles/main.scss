@@ -1,0 +1,30 @@
+@import "abstracts/variables";
+@import "abstracts/mixins";
+
+@import "base/animations";
+@import "base/typography";
+@import "base/base";
+
+@import "modules/sprite";
+
+@import "components/loading-animation";
+@import "components/header-bg";
+@import "components/project-box";
+@import "components/mixitup-button";
+@import "components/nav-menu";
+@import "components/bg-video";
+@import "components/bubbles-bg.scss";
+
+@import "layout/grid.scss";
+@import "layout/header.scss";
+@import "layout/about.scss";
+@import "layout/footer.scss";
+
+@import "pages/home.scss";
+
+@import "layout/responsive.scss"; //responsive is last to implement media query order for devices
+
+
+
+
+

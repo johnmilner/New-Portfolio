@@ -1,0 +1,54 @@
+.header {
+  height: 100vh;
+  background-image: linear-gradient(
+      to right bottom,
+      rgba($color-tertiary-light, 0.6),
+      rgba($color-white, 0.6));
+  background-size: cover;
+  background-position: top;
+  position: relative;
+  opacity: 0;
+  
+
+  @supports (clip-path: polygon(0 0)) or (-webkit-clip-path: polygon(0 0)) {
+      -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+      clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+      height: 95vh;
+  }
+
+  @media only screen and (min-resolution: 192dpi) and (min-width: 37.5em),
+          only screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 37.5em),
+          only screen and (min-width: 125em) {
+      background-image: linear-gradient(
+          to right bottom,
+          rgba($color-tertiary-light, 0.6),
+          rgba($color-white, 0.6));
+  }
+}
+
+.tagline {
+  // position: absolute;
+  // top: 50%;
+  // left: 0%;
+  // transform: translate(-50%, -50%);
+  // text-align: center;
+  // width: 85%;
+  // opacity: 0;
+  // cursor: pointer;
+  position: fixed;
+  width: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 3;
+  pointer-events: none;
+  text-align: center;
+  opacity: 0;
+
+}
+
+.main-headline-r1 {
+  @include respond(small-phone) {
+    letter-spacing: 0.2em;
+  }
+}
+
