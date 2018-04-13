@@ -16,7 +16,8 @@
 }
 /* Nav Menu Bg Color */
 .shape-overlays path:nth-of-type(2) {
-  fill: #4c688b;
+  //fill: #4c688b;
+  fill: #f76c6c;
 }
 .shape-overlays path:nth-of-type(3) {
   fill: #2e496a;
@@ -234,7 +235,7 @@
   padding: 0 10px;
   z-index: 1;
   position: relative;
-  background-color: #4c688b;
+  background-color: #f76c6c;
 }
 .nav-categories {
   padding: 20px 0 30px;
@@ -304,11 +305,11 @@
 }
 .nav-sublinks {
   font-size: 0.45em;
-  color: #80bece;
+  color: $color-white;
   padding-top: 30px;
   padding-bottom: 30px;
-  border-top: 2px solid #80bece;
-  border-bottom: 2px solid #80bece;
+  border-top: 2px solid $color-white;
+  border-bottom: 2px solid $color-white;
   width: 100%;
   text-align: center;
 }

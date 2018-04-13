@@ -1323,7 +1323,7 @@ button:after {
 /* Nav Menu Bg Color */
 
 .shape-overlays path:nth-of-type(2) {
-  fill: #4c688b;
+  fill: #f76c6c;
 }
 
 .shape-overlays path:nth-of-type(3) {
@@ -1584,7 +1584,7 @@ button:after {
   padding: 0 10px;
   z-index: 1;
   position: relative;
-  background-color: #4c688b;
+  background-color: #f76c6c;
 }
 
 .nav-categories {
@@ -1664,11 +1664,11 @@ button:after {
 
 .nav-sublinks {
   font-size: 0.45em;
-  color: #80bece;
+  color: #fff;
   padding-top: 30px;
   padding-bottom: 30px;
-  border-top: 2px solid #80bece;
-  border-bottom: 2px solid #80bece;
+  border-top: 2px solid #fff;
+  border-bottom: 2px solid #fff;
   width: 100%;
   text-align: center;
 }
@@ -1903,7 +1903,7 @@ div#projects {
 }
 
 .header {
-  height: 100vh;
+  height: 85vh;
   background-image: -webkit-gradient(linear, left top, right bottom, from(rgba(41, 152, 255, .6)), to(rgba(255, 255, 255, .6)));
   background-image: linear-gradient(to right bottom, rgba(41, 152, 255, .6), rgba(255, 255, 255, .6));
   background-size: cover;
@@ -1928,7 +1928,7 @@ div#projects {
 }
 
 .tagline {
-  position: fixed;
+  position: absolute;
   width: 100%;
   top: 50%;
   -webkit-transform: translateY(-50%);

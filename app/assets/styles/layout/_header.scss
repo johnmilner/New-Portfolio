@@ -1,5 +1,5 @@
 .header {
-  height: 100vh;
+  height: 85vh;
   background-image: linear-gradient(
       to right bottom,
       rgba($color-tertiary-light, 0.6),
@@ -35,7 +35,7 @@
   // width: 85%;
   // opacity: 0;
   // cursor: pointer;
-  position: fixed;
+  position: absolute;
   width: 100%;
   top: 50%;
   transform: translateY(-50%);
