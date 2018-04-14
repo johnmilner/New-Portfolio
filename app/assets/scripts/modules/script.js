@@ -80,7 +80,7 @@ anime.timeline({ loop: false })
         opacity: 1,
         duration: 1000,
         speed: .5,
-        easing: 'easeOutElastic',
+        easing: [.165, .84, .44, 1],
         delay: 250
       });
 
