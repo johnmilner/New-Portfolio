@@ -28,6 +28,27 @@
   src: url("../../../assets/fonts/Graphik-Regular.otf");
 }
 
+@font-face {
+  font-family: "source-serif-pro";
+  font-weight: 400;
+  font-style: normal;
+  src: url('../../../assets/fonts/SourceSerifPro-Regular.woff2') format("woff2"),url('../../../assets/fonts/SourceSerifPro-Regular.woff') format("woff")
+}
+
+@font-face {
+  font-family: trump-gothic-pro;
+  font-weight: 400;
+  font-style: normal;
+  src: url('../../../assets/fonts/TrumpGothicPro.woff2') format("woff2"),url('../../../assets/fonts/TrumpGothicPro.woff') format("woff")
+}
+
+@font-face {
+  font-family: goku;
+  font-weight: 400;
+  font-style: normal;
+  src: url('../../../assets/fonts/Goku.woff2') format("woff2"),url('../../../assets/fonts/Goku.woff') format("woff")
+}
+
 .tagline {
   color: #fff;
   text-align: center;

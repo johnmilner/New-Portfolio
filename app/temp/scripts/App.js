@@ -10011,6 +10011,21 @@ anime.timeline({ loop: false }).add({
   speed: .5,
   easing: [.165, .84, .44, 1],
   delay: 250
+}).add({
+  targets: ".burger-line-hover",
+  translateX: "0%",
+  opacity: 1,
+  duration: 1000,
+  speed: .5,
+  easing: [.165, .84, .44, 1],
+  delay: 250
+}).add({
+  targets: "#burger-border-wrap",
+  opacity: .6,
+  duration: 1000,
+  speed: .5,
+  easing: [.165, .84, .44, 1],
+  delay: 250
 });
 
 anime({
@@ -10162,231 +10177,239 @@ var ease = {
     return Math.pow(t - 1.0, 3.0) * (1.0 - t) + 1.0;
   }
 
-  /* 
-  Menu Overlay
-  */
-};var app = {};
-app.menuVisible = false;
-app.keyCodeESC = 27;
-var elmOverlay = document.querySelector('.shape-overlays');
-var overlay = new ShapeOverlays(elmOverlay);
+  // /* 
+  // Menu Overlay
+  // */
+  // var app = {};
+  // app.menuVisible = false;
+  // app.keyCodeESC = 27;
+  // const elmOverlay = document.querySelector('.shape-overlays');
+  // const overlay = new ShapeOverlays(elmOverlay);
 
-$(function () {
-  if ($("body").hasClass("portfolio") || $("body").hasClass("single-page")) app.loadAndFadeInCaseImages();
+  // $(function() {
+  //   if ($("body").hasClass("portfolio") || $("body").hasClass("single-page")) app.loadAndFadeInCaseImages();
 
-  // Top menu
-  $('.menu').click(function (e) {
-    e.preventDefault();
-    !app.menuVisible ? app.revealMenu() : app.hideMenu();
-  });
+  //   // Top menu
+  //   $('.menu').click(function(e) {
+  //     e.preventDefault();
+  //     !app.menuVisible ? app.revealMenu() : app.hideMenu();
+  //   });
 
-  // Hide nav if clicked outside of a menu alternative
-  $('.nav').click(function (e) {
-    app.hideMenu();
-  });
-  // Make sure that links don't close the menu
-  $('.nav a').click(function (e) {
-    e.stopPropagation();
-  });
+  //   // Hide nav if clicked outside of a menu alternative
+  //   $('.nav').click(function(e) {
+  //     app.hideMenu();
+  //   });
+  //   // Make sure that links don't close the menu
+  //   $('.nav a').click(function(e) {
+  //     e.stopPropagation();
+  //   });
 
-  // Listen to ESC, close menu if visible
-  $(document).keyup(function (e) {
-    if (e.keyCode == app.keyCodeESC) app.handleESCKey();
-  });
-});
+  //   // Listen to ESC, close menu if visible
+  //   $(document).keyup(function(e) {
+  //     if (e.keyCode == app.keyCodeESC) app.handleESCKey();
+  //   });
 
-app.loadAndFadeInCaseImages = function () {
-  // Load background images
-  $("[data-image]").each(function (i, elem) {
-    var $elem = $(elem),
-        url = "/images/portfolio/" + $elem.attr('data-image');
-    if (url == null || url.length <= 0) {
-      return;
-    }
 
-    $elem.addClass('image-loading');
-    $('<img/>').attr('src', url).load(function () {
-      $(this).remove();
-      $bg = $('<div class="case-item-bg"/>');
-      $bg.css('background-image', 'url(' + url + ')');
+  // });
 
-      $elem.prepend($bg);
-      $elem.removeClass('image-loading').addClass('image-ready');
-    });
-  });
-};
 
-app.handleESCKey = function () {
-  $(document).trigger("pressed:ESC");
-  if (app.menuVisible) app.hideMenu();
-};
+  // app.loadAndFadeInCaseImages = function() {
+  //   // Load background images
+  //   $("[data-image]").each(function(i, elem) {
+  //     var $elem = $(elem),
+  //     url = "/images/portfolio/" + $elem.attr('data-image');
+  //     if (url == null || url.length <= 0 ) { return; }
 
-app.toggleMenuStates = function () {
-  //$('body').toggleClass('no-scroll');
-  $('.menu').toggleClass('menu-active');
-  $('.nav').toggleClass('nav-active');
-};
+  //     $elem.addClass('image-loading');
+  //     $('<img/>').attr('src', url).load(function() {
+  //       $(this).remove();
+  //       $bg = $('<div class="case-item-bg"/>');
+  //       $bg.css( 'background-image', 'url(' + url + ')');
 
-app.revealMenu = function () {
-  app.menuVisible = true;
-  overlay.toggle();
-  app.toggleMenuStates();
+  //       $elem.prepend($bg);
+  //       $elem
+  //         .removeClass('image-loading')
+  //         .addClass('image-ready');
+  //     });
+  //   });
+  // }
 
-  anime({
-    targets: '',
-    scale: [0.2, 3],
-    opacity: [0.2, 1],
-    easing: "easeInCubic",
-    duration: 300
-  });
+  // app.handleESCKey = function() {
+  //   $(document).trigger("pressed:ESC");
+  //   if (app.menuVisible) app.hideMenu();
+  // }
 
-  var containerDelay = 200;
-  anime({
-    targets: '.js-nav',
-    opacity: [0, 1],
-    delay: containerDelay,
-    easing: "easeInOutExpo",
-    duration: 200
-  });
+  // app.toggleMenuStates = function() {
+  //   //$('body').toggleClass('no-scroll');
+  //   $('.menu').toggleClass('menu-active');
+  //   $('.nav').toggleClass('nav-active');
+  // }
 
-  var menuItemDelay = 90;
-  containerDelay += 75;
-  $(".js-nav-header").css("opacity", "0");
-  anime({
-    targets: ".js-nav-header",
-    opacity: [0, 1],
-    delay: containerDelay,
-    easing: "easeInOutExpo",
-    duration: 200
-  });
+  // app.revealMenu = function() {
+  //   app.menuVisible = true;
+  //   overlay.toggle();
+  //   app.toggleMenuStates();
 
-  $(".js-nav-header-line").css("transform", "scale(0.2)");
-  anime({
-    targets: '.js-nav-header-line',
-    scaleX: [0.28, 1],
-    delay: containerDelay,
-    easing: "easeInOutExpo",
-    duration: 600
-  });
-  containerDelay += 350;
+  //   anime({
+  //     targets:'',
+  //     scale: [0.2, 3],
+  //     opacity: [0.2,1],
+  //     easing: "easeInCubic",
+  //     duration: 300
+  //   });
 
-  $(".js-nav-animate").each(function (i) {
-    $(this).css({
-      "opacity": "0",
-      "transform": "scale(0.9)",
-      "padding-left": "1px"
-    });
-  });
+  //   var containerDelay = 200;
+  //   anime({
+  //     targets:'.js-nav',
+  //     opacity: [0, 1],
+  //     delay: containerDelay,
+  //     easing: "easeInOutExpo",
+  //     duration: 200
+  //   });
 
-  anime({
-    targets: '.js-nav-animate',
-    translateY: ["-7px", 0],
-    scale: [0.9, 1],
-    opacity: [0, 1],
-    delay: function delay(el, i) {
-      return containerDelay + menuItemDelay * (i + 1);
-    },
-    duration: 1100,
-    easing: "easeOutExpo",
-    complete: function complete() {
-      $(document).trigger("app:menuDidReveal");
-    }
-  });
-};
+  //   var menuItemDelay = 90;
+  //   containerDelay += 75;
+  //   $(".js-nav-header").css("opacity", "0");
+  //   anime({
+  //     targets: ".js-nav-header",
+  //     opacity: [0,1],
+  //     delay: containerDelay,
+  //     easing: "easeInOutExpo",
+  //     duration: 200
+  //   });
 
-app.hideMenu = function () {
-  app.menuVisible = false;
-  app.toggleMenuStates();
-  overlay.toggle();
-  $(document).trigger("app:menuWillHide");
+  //   $(".js-nav-header-line").css("transform", "scale(0.2)");
+  //   anime({
+  //     targets:'.js-nav-header-line',
+  //     scaleX: [0.28, 1],
+  //     delay: containerDelay,
+  //     easing: "easeInOutExpo",
+  //     duration: 600
+  //   });
+  //   containerDelay += 350;
 
-  $(".header").css({
-    "overflow": "hidden"
-  });
-  $("#body-content-wrapper").css({
-    "overflow": "hidden"
-  });
+  //   $(".js-nav-animate").each(function(i) {
+  //     $(this).css({
+  //       "opacity": "0",
+  //       "transform" : "scale(0.9)",
+  //       "padding-left" : "1px"
+  //     });
+  //   });
 
-  var containerDelay = 200;
-  anime({
-    targets: '.menu-animated-background',
-    scale: [3, 0],
-    opacity: [1, 0],
-    easing: "easeInExpo",
-    duration: 300
-  });
+  //   anime({
+  //     targets: '.js-nav-animate',
+  //     translateY: ["-7px", 0],
+  //     scale: [0.9, 1],
+  //     opacity: [0, 1],
+  //     delay: function(el, i) {
+  //       return containerDelay + menuItemDelay * (i+1)
+  //     },
+  //     duration: 1100,
+  //     easing: "easeOutExpo",
+  //     complete: function() {
+  //       $(document).trigger("app:menuDidReveal");
+  //     }
+  //   });
 
-  anime({
-    targets: '.js-nav',
-    opacity: [1, 0],
-    easing: "easeInOutExpo",
-    duration: 200
-  });
+  // }
 
-  anime({
-    targets: '.js-nav-header-line',
-    scale: [1, 0.5],
-    easing: "easeInExpo",
-    duration: 300
-  });
+  // app.hideMenu = function() {
+  //   app.menuVisible = false;
+  //   app.toggleMenuStates();
+  //   overlay.toggle();
+  //   $(document).trigger("app:menuWillHide");
 
-  anime({
-    targets: '.js-nav-animate',
-    translateY: "10px",
-    scale: [1, 0.9],
-    opacity: [1, 0],
-    easing: "easeInExpo",
-    duration: 200
-  });
-};
+  //   $(".header").css({
+  //     "overflow": "hidden"
+  //   });
+  //   $("#body-content-wrapper").css({
+  //     "overflow": "hidden"
+  //   });
 
-// Typically called by views that want to display something in the same 
-// position of the menu icon
-app.hideMenuIcon = function () {
-  $(".menu").hide();
-};
+  //   var containerDelay = 200;
+  //   anime({
+  //     targets: '.menu-animated-background',
+  //     scale: [3,0],
+  //     opacity: [1,0],
+  //     easing: "easeInExpo",
+  //     duration: 300
+  //   });
 
-app.showMenuIcon = function () {
-  $(".menu").show();
-};
+  //   anime({
+  //     targets:'.js-nav',
+  //     opacity: [1, 0],
+  //     easing: "easeInOutExpo",
+  //     duration: 200
+  //   });
 
-var elmHamburger = document.querySelector('.menu');
-var navItems = document.querySelectorAll('.nav-link');
-var subNavItems = document.querySelectorAll('.nav-sublink');
+  //   anime({
+  //     targets:'.js-nav-header-line',
+  //     scale: [1, 0.5],
+  //     easing: "easeInExpo",
+  //     duration: 300
+  //   });
 
-// //remove global menu items
-// function removeGlobalMenu() {
-//   for (var i = 0; i < navItems.length; i++) {
-//     navItems[i].classList.remove('js-nav-animate');
-//   }
-// }
+  //   anime({
+  //     targets: '.js-nav-animate',
+  //     translateY: "10px",
+  //     scale: [1, 0.9],
+  //     opacity: [1, 0],
+  //     easing: "easeInExpo",
+  //     duration: 200
+  //   });
 
-//loop thru nav_sublinks listening for click, onclick close overlay, close hamburger menu
-for (var i = 0; i < navItems.length; i++) {
-  navItems[i].addEventListener('click', function () {
-    //console.log('clicked!!');
-    if (overlay.isAnimating) {
-      return false;
-    }
-    app.hideMenu();
-  });
-};
+  // }
 
-for (var i = 0; i < subNavItems.length; i++) {
-  subNavItems[i].addEventListener('click', function () {
-    //console.log('clicked!!');
-    if (overlay.isAnimating) {
-      return false;
-    }
-    app.hideMenu();
-  });
-};
+  // // Typically called by views that want to display something in the same 
+  // // position of the menu icon
+  // app.hideMenuIcon = function() {
+  //   $(".menu").hide();
+  // }
 
-/* 
-Menu Overlay End 
-*/
+  // app.showMenuIcon = function() {
+  //   $(".menu").show();  
+  // }
 
-$('a.js-scroll-trigger[href*="#"]:not([href="#"])').click(function () {
+
+  // const elmHamburger = document.querySelector('.menu');
+  // const navItems = document.querySelectorAll('.nav-link');
+  // const subNavItems = document.querySelectorAll('.nav-sublink');
+
+  //   // //remove global menu items
+  //   // function removeGlobalMenu() {
+  //   //   for (var i = 0; i < navItems.length; i++) {
+  //   //     navItems[i].classList.remove('js-nav-animate');
+  //   //   }
+  //   // }
+
+  // //loop thru nav_sublinks listening for click, onclick close overlay, close hamburger menu
+  // for (var i = 0; i < navItems.length; i++) {
+  //   navItems[i].addEventListener('click', function(){
+  //     //console.log('clicked!!');
+  //     if (overlay.isAnimating) {
+  //       return false;
+  //     }
+  //     app.hideMenu();   
+  //   });
+
+  // };
+
+  // for (var i = 0; i < subNavItems.length; i++) {
+  //   subNavItems[i].addEventListener('click', function(){
+  //     //console.log('clicked!!');
+  //     if (overlay.isAnimating) {
+  //       return false;
+  //     }
+  //     app.hideMenu();   
+  //   });
+
+  // };
+
+  // /* 
+  // Menu Overlay End 
+  // */
+
+};$('a.js-scroll-trigger[href*="#"]:not([href="#"])').click(function () {
   if (location.pathname.replace(/^\//, "") == this.pathname.replace(/^\//, "") && location.hostname == this.hostname) {
     var target = $(this.hash);
     target = target.length ? target : $("[name=" + this.hash.slice(1) + "]");
@@ -10798,17 +10821,20 @@ var _skylake2 = _interopRequireDefault(_skylake);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-//   console.log('clicked!');
-//   if (burger.className = 'oh active') {
-//     burger.addEventListener('click', function() {
+//import devicon from 'devicon'
 
-//       tl.play({reverse: true})
-//       burger.className = 'oh'
-
-
-//     })
-//   } 
-// });
+/*
+ Preloader
+*/
+$(window).on("load", function () {
+  var preloaderFadeOutTime = 2500;
+  function hidePreloader() {
+    var preloader = $(".spinner");
+    preloader.show(); //show preloader - see spinner css
+    preloader.delay(2300).fadeOut(preloaderFadeOutTime);
+  }
+  hidePreloader();
+});
 
 /*
   Menu Overlay
@@ -10816,8 +10842,6 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var app = {};
 app.menuVisible = false;
 app.keyCodeESC = 27;
-// const elmOverlay = document.querySelector('.shape-overlays');
-// const overlay = new ShapeOverlays(elmOverlay);
 
 $(function () {
   if ($("body").hasClass("body-content-wrapper") || $("body").hasClass("single-page")) app.loadAndFadeInCaseImages();
@@ -10832,6 +10856,7 @@ $(function () {
   $('#burger-menu').click(function (e) {
     app.hideMenu();
   });
+
   // Make sure that links don't close the menu
   // $('.nav a').click(function(e) {
   //   e.stopPropagation();
@@ -10880,21 +10905,17 @@ app.revealMenu = function () {
   //overlay.toggle();
   app.toggleMenuStates();
 
-  // const burger = document.querySelector('#burger');
-  // burger.addEventListener('click', function() {
-
   var tl = new _skylake2.default.Timeline();
   var isObj = _skylake2.default.Is.object(tl);
-  tl.from({ el: '#burger-menu-sail-l', p: { y: [0, 100] }, d: 2500, e: 'Power4InOut' });
-  tl.from({ el: '#burger-menu-sail-r', p: { y: [0, 100] }, d: 2500, e: 'Power4InOut', delay: 50 });
+  tl.from({ el: '.burger-line-hover', p: { x: [0, 105] }, d: 1600, e: 'ExpoOut' });
+
+  tl.from({ el: '#burger-menu-sail-l', p: { y: [0, 100] }, d: 1500, e: 'Power4InOut' });
+  tl.from({ el: '#burger-menu-sail-r', p: { y: [0, 100] }, d: 1500, e: 'Power4InOut', delay: 50 });
   tl.from({ el: '#burger-menu-list', p: { y: [0, 225] }, d: 2500, e: 'Power4InOut' });
   tl.from({ el: '.burger-menu-link', p: { y: [-100, 0] }, d: 1600, e: 'ExpoOut', delay: 1800 });
   tl.from({ el: '.burger-menu-share', p: { y: [100, 0] }, d: 1600, e: 'ExpoOut', delay: 800 });
 
-  tl.from({ el: '.burger-close', p: { y: [-108, 0] }, d: 1600, e: 'Power4InOut', delay: 400 });
-  tl.from({ el: '#burger-border-wrap', p: { opacity: [0, .5] }, d: 1600, e: 'Power4InOut' });
-
-  burger.className = 'oh active';
+  tl.from({ el: '.burger-close', p: { y: [-108, 0] }, d: 1600, e: 'Power4InOut' });
 
   tl.play();
 };
@@ -10905,22 +10926,23 @@ app.hideMenu = function () {
   //overlay.toggle();
   $(document).trigger("app:menuWillHide");
 
-  // $(".header").css({
-  //   "overflow": "hidden"
+  // $(".burger-line-hover").css({
+  //   "transition-delay": "800ms"
   // });
-  // $("#body-content-wrapper").css({
-  //   "overflow": "hidden"
+
+  // $("#burger-line").css({
+  //   "transform": "translate3d(0,0%,0)"
   // });
+
   var tl = new _skylake2.default.Timeline();
   var isObj = _skylake2.default.Is.object(tl);
-  tl.from({ el: '.burger-close', p: { y: [0, -108] }, d: 1600, e: 'Power4InOut', delay: 400 });
-  tl.from({ el: '#burger-border-wrap', p: { opacity: [.5, 0] }, d: 1600, e: 'Power4InOut' });
-  tl.from({ el: '.burger-menu-share', p: { y: [0, 100] }, d: 1600, e: 'ExpoOut', delay: 800 });
-
-  tl.from({ el: '#burger-menu-sail-l', p: { y: [100, 0] }, d: 2500, e: 'Power4InOut' });
-  tl.from({ el: '#burger-menu-sail-r', p: { y: [100, 0] }, d: 2500, e: 'Power4InOut', delay: 50 });
-  tl.from({ el: '#burger-menu-list', p: { y: [225, 0] }, d: 2500, e: 'Power4InOut' });
-  tl.from({ el: '.burger-menu-link', p: { y: [0, -100] }, d: 1600, e: 'ExpoOut', delay: 1800 });
+  tl.from({ el: '#burger-menu-sail-l', p: { y: [100, 0] }, d: 1500, e: 'Power4InOut' });
+  tl.from({ el: '#burger-menu-sail-r', p: { y: [100, 0] }, d: 1500, e: 'Power4InOut', delay: 50 });
+  tl.from({ el: '#burger-menu-list', p: { y: [225, 0] }, d: 1500, e: 'Power4InOut' });
+  tl.from({ el: '.burger-menu-share', p: { y: [0, 100] }, d: 800, e: 'ExpoOut' });
+  tl.from({ el: '.burger-close', p: { y: [0, -108] }, d: 1600, e: 'Power4InOut' });
+  tl.from({ el: '.burger-line-hover', p: { x: [105, 0] }, d: 800, e: 'ExpoOut', delay: 800 });
+  tl.from({ el: '.burger-menu-link', p: { y: [0, -100] }, d: 1600, e: 'ExpoOut', delay: 800 });
 
   tl.play();
 };

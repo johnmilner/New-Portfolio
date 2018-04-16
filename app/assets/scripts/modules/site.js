@@ -1,19 +1,18 @@
 ﻿import S from 'skylake'
+//import devicon from 'devicon'
 
-  
-  
-    
-  //   console.log('clicked!');
-  //   if (burger.className = 'oh active') {
-  //     burger.addEventListener('click', function() {
-
-  //       tl.play({reverse: true})
-  //       burger.className = 'oh'
-
-  
-  //     })
-  //   } 
-  // });
+/*
+ Preloader
+*/
+$(window).on("load", function() {
+  var preloaderFadeOutTime = 2500;
+  function hidePreloader() {
+    var preloader = $(".spinner");
+    preloader.show(); //show preloader - see spinner css
+    preloader.delay(2300).fadeOut(preloaderFadeOutTime);
+  }
+  hidePreloader();  
+});
 
 /*
   Menu Overlay
@@ -21,8 +20,7 @@
 var app = {};
 app.menuVisible = false;
 app.keyCodeESC = 27;
-// const elmOverlay = document.querySelector('.shape-overlays');
-// const overlay = new ShapeOverlays(elmOverlay);
+
 
 $(function() {
   if ($("body").hasClass("body-content-wrapper") || $("body").hasClass("single-page")) app.loadAndFadeInCaseImages();
@@ -37,6 +35,7 @@ $(function() {
   $('#burger-menu').click(function(e) {
     app.hideMenu();
   });
+
   // Make sure that links don't close the menu
   // $('.nav a').click(function(e) {
   //   e.stopPropagation();
@@ -88,23 +87,20 @@ app.revealMenu = function() {
   //overlay.toggle();
   app.toggleMenuStates();
   
-  // const burger = document.querySelector('#burger');
-  // burger.addEventListener('click', function() {
     
     const tl = new S.Timeline()
     const isObj = S.Is.object(tl)
-    tl.from({el: '#burger-menu-sail-l', p: {y: [0, 100]}, d: 2500, e: 'Power4InOut'})
-    tl.from({el: '#burger-menu-sail-r', p: {y: [0, 100]}, d: 2500, e: 'Power4InOut', delay: 50})
+    tl.from({el: '.burger-line-hover', p: {x: [0, 105]}, d: 1600, e: 'ExpoOut'})
+
+    tl.from({el: '#burger-menu-sail-l', p: {y: [0, 100]}, d: 1500, e: 'Power4InOut'})
+    tl.from({el: '#burger-menu-sail-r', p: {y: [0, 100]}, d: 1500, e: 'Power4InOut', delay: 50})
     tl.from({el: '#burger-menu-list', p: {y: [0, 225]}, d: 2500, e: 'Power4InOut'})
     tl.from({el: '.burger-menu-link', p: {y: [-100, 0]}, d: 1600, e: 'ExpoOut', delay: 1800})
     tl.from({el: '.burger-menu-share', p: {y: [100, 0]}, d: 1600, e: 'ExpoOut', delay: 800})
-    
-    tl.from({el: '.burger-close', p: {y: [-108, 0]}, d: 1600, e: 'Power4InOut', delay: 400})
-    tl.from({el: '#burger-border-wrap', p: {opacity: [0, .5]}, d: 1600, e: 'Power4InOut'})
 
-    burger.className = 'oh active';
+    tl.from({el: '.burger-close', p: {y: [-108, 0]}, d: 1600, e: 'Power4InOut'})
 
-
+  
     tl.play()
   
 
@@ -116,23 +112,24 @@ app.hideMenu = function() {
   //overlay.toggle();
   $(document).trigger("app:menuWillHide");
 
-  // $(".header").css({
-  //   "overflow": "hidden"
+  // $(".burger-line-hover").css({
+  //   "transition-delay": "800ms"
   // });
-  // $("#body-content-wrapper").css({
-  //   "overflow": "hidden"
+
+  // $("#burger-line").css({
+  //   "transform": "translate3d(0,0%,0)"
   // });
+
   const tl = new S.Timeline()
   const isObj = S.Is.object(tl)
-  tl.from({el: '.burger-close', p: {y: [0, -108]}, d: 1600, e: 'Power4InOut', delay: 400})
-  tl.from({el: '#burger-border-wrap', p: {opacity: [.5, 0]}, d: 1600, e: 'Power4InOut'})
-  tl.from({el: '.burger-menu-share', p: {y: [0, 100]}, d: 1600, e: 'ExpoOut', delay: 800})
-
-  tl.from({el: '#burger-menu-sail-l', p: {y: [100, 0]}, d: 2500, e: 'Power4InOut'})
-  tl.from({el: '#burger-menu-sail-r', p: {y: [100, 0]}, d: 2500, e: 'Power4InOut', delay: 50})
-  tl.from({el: '#burger-menu-list', p: {y: [225, 0]}, d: 2500, e: 'Power4InOut'})
-  tl.from({el: '.burger-menu-link', p: {y: [0, -100]}, d: 1600, e: 'ExpoOut', delay: 1800})
-  
+  tl.from({el: '#burger-menu-sail-l', p: {y: [100, 0]}, d: 1500, e: 'Power4InOut'})
+  tl.from({el: '#burger-menu-sail-r', p: {y: [100, 0]}, d: 1500, e: 'Power4InOut', delay: 50})
+  tl.from({el: '#burger-menu-list', p: {y: [225, 0]}, d: 1500, e: 'Power4InOut'})
+  tl.from({el: '.burger-menu-share', p: {y: [0, 100]}, d: 800, e: 'ExpoOut'})
+  tl.from({el: '.burger-close', p: {y: [0, -108]}, d: 1600, e: 'Power4InOut'})
+  tl.from({el: '.burger-line-hover', p: {x: [105, 0]}, d: 800, e: 'ExpoOut', delay: 800})
+  tl.from({el: '.burger-menu-link', p: {y: [0, -100]}, d: 1600, e: 'ExpoOut', delay: 800})
+ 
   tl.play()
   
 }
