@@ -90,7 +90,8 @@ app.revealMenu = function() {
     
     const tl = new S.Timeline()
     const isObj = S.Is.object(tl)
-    tl.from({el: '.burger-line-hover', p: {x: [0, 105]}, d: 1600, e: 'ExpoOut'})
+    tl.from({el: '.burger-line-hover', p: {x: [0, 105]}, d: 1600, e: 'ExpoOut', delay: 800})
+    tl.from({el: '.burger-close', p: {y: [-108, 0]}, d: 1600, e: 'Power4InOut', delay: 800})
 
     tl.from({el: '#burger-menu-sail-l', p: {y: [0, 100]}, d: 1500, e: 'Power4InOut'})
     tl.from({el: '#burger-menu-sail-r', p: {y: [0, 100]}, d: 1500, e: 'Power4InOut', delay: 50})
@@ -98,7 +99,6 @@ app.revealMenu = function() {
     tl.from({el: '.burger-menu-link', p: {y: [-100, 0]}, d: 1600, e: 'ExpoOut', delay: 1800})
     tl.from({el: '.burger-menu-share', p: {y: [100, 0]}, d: 1600, e: 'ExpoOut', delay: 800})
 
-    tl.from({el: '.burger-close', p: {y: [-108, 0]}, d: 1600, e: 'Power4InOut'})
 
   
     tl.play()
@@ -122,12 +122,13 @@ app.hideMenu = function() {
 
   const tl = new S.Timeline()
   const isObj = S.Is.object(tl)
+  tl.from({el: '.burger-close', p: {y: [0, -108]}, d: 1600, e: 'Power4InOut', delay: 800})
+  tl.from({el: '.burger-line-hover', p: {x: [105, 0]}, d: 800, e: 'ExpoOut', delay: 800})
   tl.from({el: '#burger-menu-sail-l', p: {y: [100, 0]}, d: 1500, e: 'Power4InOut'})
   tl.from({el: '#burger-menu-sail-r', p: {y: [100, 0]}, d: 1500, e: 'Power4InOut', delay: 50})
   tl.from({el: '#burger-menu-list', p: {y: [225, 0]}, d: 1500, e: 'Power4InOut'})
   tl.from({el: '.burger-menu-share', p: {y: [0, 100]}, d: 800, e: 'ExpoOut'})
-  tl.from({el: '.burger-close', p: {y: [0, -108]}, d: 1600, e: 'Power4InOut'})
-  tl.from({el: '.burger-line-hover', p: {x: [105, 0]}, d: 800, e: 'ExpoOut', delay: 800})
+  
   tl.from({el: '.burger-menu-link', p: {y: [0, -100]}, d: 1600, e: 'ExpoOut', delay: 800})
  
   tl.play()
