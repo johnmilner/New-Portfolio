@@ -83,16 +83,16 @@ anime.timeline({ loop: false })
         easing: [.165, .84, .44, 1],
         delay: 250
       }).add({
-        targets: ".burger-line-hover",
-        translateX: "0%",
-        opacity: 1,
+        targets: "#burger-border-wrap",
+        opacity: .6,
         duration: 1000,
         speed: .5,
         easing: [.165, .84, .44, 1],
         delay: 250
       }).add({
-        targets: "#burger-border-wrap",
-        opacity: .6,
+        targets: ".burger-line-hover",
+        translateX: "0%",
+        opacity: 1,
         duration: 1000,
         speed: .5,
         easing: [.165, .84, .44, 1],
