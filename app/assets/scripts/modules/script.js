@@ -13,10 +13,10 @@ $(window).on("load", function() {
   function hidePreloader() {
     var preloader = $(".spinner");
     preloader.show(); //show preloader - see spinner css
-    preloader.delay(2300).fadeOut(preloaderFadeOutTime);
+    preloader.delay(2300).fadeOut(preloaderFadeOutTime, intro);
   }
   hidePreloader();  
-  intro();
+  //intro();
 });
 
 anime.timeline({ loop: false })
@@ -67,7 +67,7 @@ anime.timeline({ loop: false })
     anime({
       targets: ".ml8 .circle-dark-dashed",
       rotateZ: 360,
-      duration: 8000,
+      duration: 5000,
       easing: "linear",
       loop: true
     });
@@ -75,10 +75,12 @@ anime.timeline({ loop: false })
     const intro = function() {
     const tl = new S.Timeline()
     const isObj = S.Is.object(tl)
-    tl.from({el: '.header', p: {opacity: [0, 1]}, d: 1500, e: 'ExpoOut', delay: 250})
+    tl.from({el: '.header', p: {opacity: [0, 1]}, d: 1000, e: 'ExpoIn'})
+    tl.from({el: '.tagline', p: {y: [100, 0]}, d: 1600, e: 'Power4InOut', delay: 500})
+
     tl.from({el: '#burger-border-wrap', p: {opacity: [0, .6]}, d: 1000, e: 'ExpoOut', delay: 250})
     tl.from({el: '.burger-line-hover', p: {x: [105, 0]}, d: 1000, e: 'ExpoOut', delay: 250})
-    tl.from({el: '.tagline', p: {y: [100, 0]}, d: 1600, e: 'ExpoOut', delay: 2400})
+    
     tl.play()
   }
     
