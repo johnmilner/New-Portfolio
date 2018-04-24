@@ -26,24 +26,26 @@
   }
 }
 
-.tagline {
-  // position: absolute;
-  // top: 50%;
-  // left: 0%;
-  // transform: translate(-50%, -50%);
-  // text-align: center;
-  // width: 85%;
-  // opacity: 0;
-  // cursor: pointer;
+#tagline-wrap {
   position: absolute;
-  width: 100%;
   top: 50%;
+  left: 0;
+  right: 0;
   transform: translateY(-50%);
+  color: #fff;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: center;
+  justify-content: center;
+  
+}
+
+.tagline {
   z-index: 3;
   pointer-events: none;
   text-align: center;
-  opacity: 0;
-
+  transform: translate3d(0, 100%, 0);
+  transition: color 0.3s ease;
 }
 
 .main-headline-r1 {

@@ -18,7 +18,6 @@ $(window).on("load", function() {
   hidePreloader();  
 });
 
-
 anime.timeline({ loop: false })
       .add({
         targets: ".ml8 .circle-white",
@@ -75,14 +74,6 @@ anime.timeline({ loop: false })
         easing: "easeInExpo",
         delay: 250
       }).add({
-        targets: ".tagline",
-        translateY: "-72px", //half the height of .tagline
-        opacity: 1,
-        duration: 1000,
-        speed: .5,
-        easing: [.165, .84, .44, 1],
-        delay: 250
-      }).add({
         targets: "#burger-border-wrap",
         opacity: .6,
         duration: 1000,
@@ -106,6 +97,9 @@ anime.timeline({ loop: false })
       easing: "linear",
       loop: true
     });
+
+    
+    
 
 /*
  Preloader End

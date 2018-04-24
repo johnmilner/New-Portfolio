@@ -12,7 +12,13 @@ $(window).on("load", function() {
     preloader.delay(2300).fadeOut(preloaderFadeOutTime);
   }
   hidePreloader();  
+  
 });
+
+const tl = new S.Timeline()
+const isObj = S.Is.object(tl)
+tl.from({el: '.tagline', p: {y: [100, 0]}, d: 1600, e: 'ExpoOut', delay: 400})
+
 
 /*
   Menu Overlay

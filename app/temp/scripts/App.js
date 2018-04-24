@@ -10004,14 +10004,6 @@ anime.timeline({ loop: false }).add({
   easing: "easeInExpo",
   delay: 250
 }).add({
-  targets: ".tagline",
-  translateY: "-72px", //half the height of .tagline
-  opacity: 1,
-  duration: 1000,
-  speed: .5,
-  easing: [.165, .84, .44, 1],
-  delay: 250
-}).add({
   targets: "#burger-border-wrap",
   opacity: .6,
   duration: 1000,
@@ -10835,6 +10827,10 @@ $(window).on("load", function () {
   }
   hidePreloader();
 });
+
+var tl = new _skylake2.default.Timeline();
+var isObj = _skylake2.default.Is.object(tl);
+tl.from({ el: '.tagline', p: { y: [100, 0] }, d: 1600, e: 'ExpoOut', delay: 400 });
 
 /*
   Menu Overlay

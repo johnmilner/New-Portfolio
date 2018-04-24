@@ -7993,16 +7993,30 @@ div#projects {
   }
 }
 
-.tagline {
+#tagline-wrap {
   position: absolute;
-  width: 100%;
   top: 50%;
+  left: 0;
+  right: 0;
   -webkit-transform: translateY(-50%);
           transform: translateY(-50%);
+  color: #fff;
+  display: -ms-flexbox;
+  display: -webkit-box;
+  display: flex;
+  -ms-flex-pack: center;
+  -webkit-box-pack: center;
+          justify-content: center;
+}
+
+.tagline {
   z-index: 3;
   pointer-events: none;
   text-align: center;
-  opacity: 0;
+  -webkit-transform: translate3d(0, 100%, 0);
+          transform: translate3d(0, 100%, 0);
+  -webkit-transition: color 0.3s ease;
+  transition: color 0.3s ease;
 }
 
 @media (max-width: 22em) {
