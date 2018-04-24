@@ -10898,6 +10898,7 @@ app.toggleMenuStates = function () {
   //$('body').toggleClass('no-scroll');
   $('#burger').toggleClass('active');
   $('#burger-menu').toggleClass('active');
+  $('#burger-menu-line-wrap').toggleClass('oh');
 };
 
 app.revealMenu = function () {
@@ -10910,13 +10911,13 @@ app.revealMenu = function () {
   tl.from({ el: '.burger-line-hover', p: { x: [0, 105] }, d: 1600, e: 'ExpoOut', delay: 800 });
   tl.from({ el: '.burger-close', p: { y: [-108, 0] }, d: 1600, e: 'Power4InOut' });
 
-  tl.from({ el: '#burger-menu-sail-l', p: { y: [0, 100] }, d: 1500, e: 'Power4InOut' });
-  tl.from({ el: '#burger-menu-sail-r', p: { y: [0, 100] }, d: 1500, e: 'Power4InOut', delay: 50 });
-  tl.from({ el: '#burger-menu-list', p: { y: [0, 225] }, d: 2500, e: 'Power4InOut' });
+  tl.from({ el: '#burger-menu-sail-l', p: { y: [0, 100] }, d: 1200, e: 'Power4InOut' });
+  tl.from({ el: '#burger-menu-sail-r', p: { y: [0, 100] }, d: 1200, e: 'Power4InOut', delay: 50 });
+  tl.from({ el: '#burger-menu-list', p: { y: [0, 223.3] }, d: 2500, e: 'Power4InOut' });
   tl.from({ el: '#burger-menu-line', p: { y: [-100, 100] }, d: 2500, e: 'Power4InOut' });
-  $('#burger-menu-line-wrap').toggleClass('oh');
+
   tl.from({ el: '.burger-menu-link', p: { y: [-100, 0] }, d: 1600, e: 'ExpoOut', delay: 1800 });
-  tl.from({ el: '.burger-menu-share', p: { y: [100, 0] }, d: 1600, e: 'ExpoOut', delay: 800 });
+  tl.from({ el: '.burger-menu-share', p: { y: [100, 0] }, d: 1600, e: 'ExpoOut', delay: 400 });
 
   tl.play();
 };
@@ -10934,19 +10935,18 @@ app.hideMenu = function () {
   // $("#burger-line").css({
   //   "transform": "translate3d(0,0%,0)"
   // });
-
   var tl = new _skylake2.default.Timeline();
   var isObj = _skylake2.default.Is.object(tl);
-  tl.from({ el: '.burger-close', p: { y: [0, -108] }, d: 1600, e: 'Power4InOut', delay: 800 });
-  tl.from({ el: '.burger-line-hover', p: { x: [105, 0] }, d: 800, e: 'ExpoOut', delay: 1000 });
   tl.from({ el: '#burger-menu-sail-l', p: { y: [100, 0] }, d: 1500, e: 'Power4InOut' });
   tl.from({ el: '#burger-menu-sail-r', p: { y: [100, 0] }, d: 1500, e: 'Power4InOut', delay: 50 });
-  tl.from({ el: '#burger-menu-line', p: { y: [100, -100] }, d: 2500, e: 'Power4InOut' });
-  $('#burger-menu-line-wrap').toggleClass('oh');
-  tl.from({ el: '#burger-menu-list', p: { y: [225, 0] }, d: 1500, e: 'Power4InOut' });
-  tl.from({ el: '.burger-menu-share', p: { y: [0, 100] }, d: 800, e: 'ExpoOut' });
 
+  tl.from({ el: '#burger-menu-list', p: { y: [223.3, 0] }, d: 1500, e: 'Power4InOut' });
+  tl.from({ el: '.burger-menu-share', p: { y: [0, 100] }, d: 800, e: 'ExpoOut' });
   tl.from({ el: '.burger-menu-link', p: { y: [0, -100] }, d: 1600, e: 'ExpoOut', delay: 800 });
+
+  tl.from({ el: '.burger-close', p: { y: [0, -108] }, d: 1600, e: 'Power4InOut' });
+  tl.from({ el: '.burger-line-hover', p: { x: [105, 0] }, d: 800, e: 'ExpoOut', delay: 800 });
+  tl.from({ el: '#burger-menu-line', p: { y: [100, -100] }, d: 1500, e: 'Power4InOut' });
 
   tl.play();
 };

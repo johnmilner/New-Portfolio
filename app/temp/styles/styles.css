@@ -742,7 +742,7 @@ html {
   display: block;
   font-family: goku;
   color: #fff;
-  font-size: calc(1rem + 6.1vh);
+  font-size: calc(1.6rem + 6.1vh);
 }
 
 .burger-menu-link {
@@ -847,11 +847,11 @@ html {
 
 #burger-menu-share-wrap {
   position: absolute;
-  bottom: -93.5vh;
+  bottom: -93vh;
   left: 0;
   right: 0;
   font-family: trump-gothic-pro;
-  font-size: calc(1.5rem + 0.2vw);
+  font-size: calc(1.45rem + 0.2vw);
   letter-spacing: 1px;
   color: #fff;
   display: -ms-flexbox;
@@ -867,7 +867,7 @@ html {
 }
 
 #burger-menu-share-wrap li:first-child .burger-menu-share {
-  padding-left: 6px;
+  padding-left: 4px;
 }
 
 .burger-menu-share {
@@ -8252,7 +8252,7 @@ section {
 
 a {
   text-decoration: none;
-  color: #5f7683;
+  color: #fff;
   outline: 0;
   text-decoration: none;
 }
