@@ -15,9 +15,7 @@ $(window).on("load", function() {
   
 });
 
-const tl = new S.Timeline()
-const isObj = S.Is.object(tl)
-tl.from({el: '.tagline', p: {y: [100, 0]}, d: 1600, e: 'ExpoOut', delay: 400})
+
 
 
 /*

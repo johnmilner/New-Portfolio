@@ -9952,6 +9952,7 @@ $(window).on("load", function () {
     preloader.delay(2300).fadeOut(preloaderFadeOutTime);
   }
   hidePreloader();
+  intro();
 });
 
 anime.timeline({ loop: false }).add({
@@ -9991,33 +9992,6 @@ anime.timeline({ loop: false }).add({
   duration: 2000,
   easing: "easeOutExpo",
   delay: 300
-}).add({
-  targets: ".menu",
-  opacity: 1,
-  duration: 500,
-  easing: "easeInExpo"
-  //delay: 500
-}).add({
-  targets: ".header",
-  opacity: 1,
-  duration: 500,
-  easing: "easeInExpo",
-  delay: 250
-}).add({
-  targets: "#burger-border-wrap",
-  opacity: .6,
-  duration: 1000,
-  speed: .5,
-  easing: [.165, .84, .44, 1],
-  delay: 250
-}).add({
-  targets: ".burger-line-hover",
-  translateX: "0%",
-  opacity: 1,
-  duration: 1000,
-  speed: .5,
-  easing: [.165, .84, .44, 1],
-  delay: 250
 });
 
 anime({
@@ -10027,6 +10001,16 @@ anime({
   easing: "linear",
   loop: true
 });
+
+var intro = function intro() {
+  var tl = new _skylake2.default.Timeline();
+  var isObj = _skylake2.default.Is.object(tl);
+  tl.from({ el: '.header', p: { opacity: [0, 1] }, d: 1500, e: 'ExpoOut', delay: 250 });
+  tl.from({ el: '#burger-border-wrap', p: { opacity: [0, .6] }, d: 1000, e: 'ExpoOut', delay: 250 });
+  tl.from({ el: '.burger-line-hover', p: { x: [105, 0] }, d: 1000, e: 'ExpoOut', delay: 250 });
+  tl.from({ el: '.tagline', p: { y: [100, 0] }, d: 1600, e: 'ExpoOut', delay: 2400 });
+  tl.play();
+};
 
 /*
  Preloader End
@@ -10827,10 +10811,6 @@ $(window).on("load", function () {
   }
   hidePreloader();
 });
-
-var tl = new _skylake2.default.Timeline();
-var isObj = _skylake2.default.Is.object(tl);
-tl.from({ el: '.tagline', p: { y: [100, 0] }, d: 1600, e: 'ExpoOut', delay: 400 });
 
 /*
   Menu Overlay
